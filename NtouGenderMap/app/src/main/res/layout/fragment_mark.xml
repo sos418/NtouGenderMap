@@ -1,13 +1,198 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.a1216qdf.ntougendermap.MarkFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="廁所"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/barthroom"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="飲水機"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/water"
+            />
+    </LinearLayout>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="垃圾桶"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/garbage"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="哺乳室"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/baby"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="吸菸區"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/smoke"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="監視器"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/watch"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="貼心車位"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/car"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="無障礙廁所"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/nobathroom"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="夜間不宜前往"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/night"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="衛生棉販賣機"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/love"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保險套販賣機"
+            android:textSize="24dp"
+            android:layout_marginBottom="5dp"
+            />
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/safe"
+            />
+
+    </LinearLayout>
+</LinearLayout>

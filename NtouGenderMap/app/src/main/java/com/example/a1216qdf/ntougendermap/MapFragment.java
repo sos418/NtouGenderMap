@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.qozix.tileview.TileView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,13 +60,22 @@ public class MapFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+        View view = inflater.inflate(R.layout.fragment_map,container,false);
+
+        TileView tileView = (TileView)view.findViewById(R.id.tileView);
+        tileView.setSize( 2000, 3000 );  // the original size of the untiled image
+        tileView.addDetailLevel( 1.0000f, "tiles/ntou/1000/%d_%d.jpg" );
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
