@@ -14,6 +14,7 @@
             android:text="廁所"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxBathroom"
             />
         <ImageView
             android:layout_width="30sp"

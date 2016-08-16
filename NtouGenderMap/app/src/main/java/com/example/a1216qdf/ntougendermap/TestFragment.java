@@ -7,20 +7,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.qozix.tileview.TileView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MapFragment.OnFragmentInteractionListener} interface
+ * {@link TestFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MapFragment#newInstance} factory method to
+ * Use the {@link TestFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapFragment extends Fragment {
+public class TestFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,11 +29,11 @@ public class MapFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TileView tileView;
-    public static TextView textView;
+    public CheckBox LightRuoute;
+
     private OnFragmentInteractionListener mListener;
 
-    public MapFragment() {
+    public TestFragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +43,11 @@ public class MapFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MapFragment.
+     * @return A new instance of fragment TestFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MapFragment newInstance(String param1, String param2) {
-        MapFragment fragment = new MapFragment();
+    public static TestFragment newInstance(String param1, String param2) {
+        TestFragment fragment = new TestFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,30 +62,30 @@ public class MapFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_test,container,false);
 
-        View view = inflater.inflate(R.layout.fragment_map,container,false);
-
-        tileView = (TileView)view.findViewById(R.id.tileView);
-        tileView.setSize( 2000, 3000 );  // the original size of the untiled image
-        tileView.addDetailLevel( 1.0000f, "tiles/ntou/1000/%d_%d.jpg" );
-
-        if (RouteFragment.TESTBOOLEAN == 0)
-        textView = (TextView)view.findViewById(R.id.textView1);
-
-        String test = textView.getText().toString();
-
+        LightRuoute = (CheckBox)view.findViewById(R.id.aaa);
+        LightRuoute.setOnCheckedChangeListener(ddd);
         // Inflate the layout for this fragment
         return view;
     }
 
+    private CheckBox.OnCheckedChangeListener ddd = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            MapFragment.textView.setText("ASD");
+
+            String test1 = MapFragment.textView.getText().toString();
+
+            String a = "asdasd";
+        }
+    };
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -126,6 +125,4 @@ public class MapFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
-
 }

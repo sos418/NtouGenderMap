@@ -24,8 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, MarkFragment.OnFragmentInteractionListener, MapFragment.OnFragmentInteractionListener {
-
+        implements NavigationView.OnNavigationItemSelectedListener,
+        MarkFragment.OnFragmentInteractionListener, MapFragment.OnFragmentInteractionListener,
+        RouteFragment.OnFragmentInteractionListener ,TestFragment.OnFragmentInteractionListener {
 
 
     @Override
@@ -115,6 +116,8 @@ public class MainActivity extends AppCompatActivity
         Adapter adapter = new Adapter(getSupportFragmentManager());
         adapter.addFragment(new MapFragment(), "地圖");
         adapter.addFragment(new MarkFragment(), "圖標");
+        adapter.addFragment(new RouteFragment(), "路線");
+
         viewPager.setAdapter(adapter);
     }
 

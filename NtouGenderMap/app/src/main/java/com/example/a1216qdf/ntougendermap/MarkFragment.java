@@ -7,6 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+
+import com.qozix.tileview.TileView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -26,6 +33,10 @@ public class MarkFragment extends Fragment  {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    public CheckBox checkBoxBathroom;
+    public TileView tileView;
+    public ImageView imageView;
 
     private OnFragmentInteractionListener mListener;
 
@@ -58,14 +69,60 @@ public class MarkFragment extends Fragment  {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_mark,container,false);
+
+
+        checkBoxBathroom = (CheckBox)v.findViewById(R.id.checkboxBathroom);
+        checkBoxBathroom.setOnCheckedChangeListener(checkBoxListener);
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mark, container, false);
+        return v;
     }
+
+    private CheckBox.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            switch (buttonView.getId()){
+                case R.id.checkboxBathroom:
+                    if (checkBoxBathroom.isChecked())
+                    {
+                        addPin(1,1);
+                    }
+                    else {
+                        removePin(1,1);
+                    }
+            }
+        }
+    };
+
+    public void addPin( double x, double y ) {
+        imageView = new ImageView(getActivity());
+        imageView.setImageResource( R.drawable.car );
+
+        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+        tileView.addMarker( imageView, x, y, null, null );
+
+        MapFragment.textView.setText("ASD");
+
+        String test1 = MapFragment.textView.getText().toString();
+
+        String a = "asdasd";
+
+    }
+
+    private void removePin( double x, double y ){
+        tileView.removeMarker(imageView);
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -104,5 +161,23 @@ public class MarkFragment extends Fragment  {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    // a list of points to demonstrate markers and paths
+    private ArrayList<double[]> points = new ArrayList<>();
+
+    {
+        points.add( new double[] {1, 2} );
+        points.add( new double[] {3,6} );
+        points.add( new double[] {7, 11} );
+        points.add( new double[] {20,20} );
+        points.add( new double[] {50, 50} );
+        points.add( new double[] {60,90} );
+        points.add( new double[] {100,150} );
+        points.add( new double[] {200, 250} );
+        points.add( new double[] {300, 388} );
+        points.add( new double[] {1000,1000} );
+        points.add( new double[] {1555,1500} );
+
     }
 }

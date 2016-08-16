@@ -7,20 +7,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import com.qozix.tileview.TileView;
+import com.qozix.tileview.paths.CompositePathView;
+
+import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MapFragment.OnFragmentInteractionListener} interface
+ * {@link RouteFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MapFragment#newInstance} factory method to
+ * Use the {@link RouteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapFragment extends Fragment {
+public class RouteFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,11 +34,13 @@ public class MapFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public CheckBox LightRuoute;
     public TileView tileView;
-    public static TextView textView;
+    public static int TESTBOOLEAN = 0;
+
     private OnFragmentInteractionListener mListener;
 
-    public MapFragment() {
+    public RouteFragment() {
         // Required empty public constructor
     }
 
@@ -44,11 +50,11 @@ public class MapFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MapFragment.
+     * @return A new instance of fragment RouteFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MapFragment newInstance(String param1, String param2) {
-        MapFragment fragment = new MapFragment();
+    public static RouteFragment newInstance(String param1, String param2) {
+        RouteFragment fragment = new RouteFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,28 +69,52 @@ public class MapFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_route,container,false);
 
-        View view = inflater.inflate(R.layout.fragment_map,container,false);
+        LightRuoute = (CheckBox)view.findViewById(R.id.LightRoute);
+        LightRuoute.setOnCheckedChangeListener(ddd);
 
-        tileView = (TileView)view.findViewById(R.id.tileView);
-        tileView.setSize( 2000, 3000 );  // the original size of the untiled image
-        tileView.addDetailLevel( 1.0000f, "tiles/ntou/1000/%d_%d.jpg" );
-
-        if (RouteFragment.TESTBOOLEAN == 0)
-        textView = (TextView)view.findViewById(R.id.textView1);
-
-        String test = textView.getText().toString();
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private CheckBox.OnCheckedChangeListener ddd = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            switch (buttonView.getId()){
+                case R.id.LightRoute:
+                    if (LightRuoute.isChecked())
+                    {
+DrawLightRoute();
+                    }
+                    else {
+
+                    }
+            }
+        }
+    };
+
+    private void DrawLightRoute(){
+
+//        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+//        tileView.drawPath( points.subList( 5, 10 ), null );)
+        MapFragment.textView.setText("ASD");
+        TESTBOOLEAN = 1;
+
+        String test1 = MapFragment.textView.getText().toString();
+
+        String a = "asdasd";
+    }
+
+    private void RemoveLightRoute(){
+        tileView.removePath((CompositePathView.DrawablePath) points.subList( 5, 10 ));
     }
 
 
@@ -128,4 +158,21 @@ public class MapFragment extends Fragment {
     }
 
 
+    // a list of points to demonstrate markers and paths
+    private ArrayList<double[]> points = new ArrayList<>();
+
+    {
+        points.add( new double[] {1, 2} );
+        points.add( new double[] {3,6} );
+        points.add( new double[] {7, 11} );
+        points.add( new double[] {20,20} );
+        points.add( new double[] {50, 50} );
+        points.add( new double[] {60,90} );
+        points.add( new double[] {100,150} );
+        points.add( new double[] {200, 250} );
+        points.add( new double[] {300, 388} );
+        points.add( new double[] {1000,1000} );
+        points.add( new double[] {1555,1500} );
+
+    }
 }

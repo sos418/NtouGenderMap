@@ -2,22 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a1216qdf.ntougendermap.MapFragment">
+    tools:context="com.example.a1216qdf.ntougendermap.TestFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-
-    <com.qozix.tileview.TileView
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tileView"
-        ></com.qozix.tileview.TileView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:text="HI"
+        android:text="夜間明亮路線"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/aaa"
         />
 
 </FrameLayout>
