@@ -35,8 +35,10 @@ public class MarkFragment extends Fragment  {
     private String mParam2;
 
     public CheckBox checkBoxBathroom;
+    public CheckBox checkBoxWater;
     public TileView tileView;
     public ImageView imageView;
+    public ImageView imageView1;
 
     private OnFragmentInteractionListener mListener;
 
@@ -77,10 +79,16 @@ public class MarkFragment extends Fragment  {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_mark,container,false);
-
+        imageView = new ImageView(getActivity());
+        imageView.setImageResource( R.drawable.car);
+        imageView1 = new ImageView(getActivity());
+        imageView1.setImageResource(R.drawable.water);
 
         checkBoxBathroom = (CheckBox)v.findViewById(R.id.checkboxBathroom);
+        checkBoxWater = (CheckBox)v.findViewById(R.id.checkboxWater);
+
         checkBoxBathroom.setOnCheckedChangeListener(checkBoxListener);
+        checkBoxWater.setOnCheckedChangeListener(CCC);
 
 
         // Inflate the layout for this fragment
@@ -94,28 +102,35 @@ public class MarkFragment extends Fragment  {
                 case R.id.checkboxBathroom:
                     if (checkBoxBathroom.isChecked())
                     {
-                        addPin(1,1);
+                        addPin(500,1000);
                     }
                     else {
-                        removePin(1,1);
+                        removePin(500,1000);
+                    }
+            }
+        }
+    };
+
+    private CheckBox.OnCheckedChangeListener CCC = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            switch (buttonView.getId()){
+                case R.id.checkboxWater:
+                    if (checkBoxWater.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+                        tileView.addMarker( imageView1, 50, 50, null, null );
+                    }
+                    else {
+                        tileView.removeMarker(imageView1);
                     }
             }
         }
     };
 
     public void addPin( double x, double y ) {
-        imageView = new ImageView(getActivity());
-        imageView.setImageResource( R.drawable.car );
-
         tileView = (TileView)getActivity().findViewById(R.id.tileView);
         tileView.addMarker( imageView, x, y, null, null );
-
-        MapFragment.textView.setText("ASD");
-
-        String test1 = MapFragment.textView.getText().toString();
-
-        String a = "asdasd";
-
     }
 
     private void removePin( double x, double y ){

@@ -31,7 +31,9 @@ public class MapFragment extends Fragment {
     private String mParam2;
 
     public TileView tileView;
-    public static TextView textView;
+    public TextView textView;
+
+
     private OnFragmentInteractionListener mListener;
 
     public MapFragment() {
@@ -75,13 +77,13 @@ public class MapFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_map,container,false);
 
         tileView = (TileView)view.findViewById(R.id.tileView);
-        tileView.setSize( 2000, 3000 );  // the original size of the untiled image
-        tileView.addDetailLevel( 1.0000f, "tiles/ntou/1000/%d_%d.jpg" );
-
-        if (RouteFragment.TESTBOOLEAN == 0)
-        textView = (TextView)view.findViewById(R.id.textView1);
-
-        String test = textView.getText().toString();
+        tileView.setSize( 2160, 3840 );  // the original size of the untiled image
+        tileView.addDetailLevel( 0.0125f, "tiles/ntou/125/%d_%d.png" );
+        tileView.addDetailLevel( 0.2500f, "tiles/ntou/250/%d_%d.png" );
+        tileView.addDetailLevel( 0.5000f, "tiles/ntou/500/%d_%d.png" );
+        tileView.addDetailLevel( 1.0000f, "tiles/ntou/1000/%d_%d.png" );
+        tileView.setMarkerAnchorPoints( -0.5f, -0.5f );
+        tileView.setScale( 0.2500f );
 
         // Inflate the layout for this fragment
         return view;

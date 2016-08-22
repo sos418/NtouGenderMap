@@ -36,7 +36,6 @@ public class RouteFragment extends Fragment {
 
     public CheckBox LightRuoute;
     public TileView tileView;
-    public static int TESTBOOLEAN = 0;
 
     private OnFragmentInteractionListener mListener;
 
@@ -103,14 +102,10 @@ DrawLightRoute();
 
     private void DrawLightRoute(){
 
-//        tileView = (TileView)getActivity().findViewById(R.id.tileView);
-//        tileView.drawPath( points.subList( 5, 10 ), null );)
-        MapFragment.textView.setText("ASD");
-        TESTBOOLEAN = 1;
+        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+        tileView.drawPath( points.subList( 5, 10 ), null );
 
-        String test1 = MapFragment.textView.getText().toString();
 
-        String a = "asdasd";
     }
 
     private void RemoveLightRoute(){

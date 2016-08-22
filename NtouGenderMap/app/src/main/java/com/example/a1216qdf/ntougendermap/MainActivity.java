@@ -26,7 +26,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         MarkFragment.OnFragmentInteractionListener, MapFragment.OnFragmentInteractionListener,
-        RouteFragment.OnFragmentInteractionListener ,TestFragment.OnFragmentInteractionListener {
+        RouteFragment.OnFragmentInteractionListener {
+
+
 
 
     @Override
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
 
 
     }
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_FriendlyMap) {
 
         } else if (id == R.id.nav_PhysiologicalMap) {
-
+            PhysiologicalMap();
         } else if (id == R.id.nav_GenderInformation) {
             GenderInfor();
         } else if (id == R.id.nav_SOSCall) {
@@ -116,7 +119,9 @@ public class MainActivity extends AppCompatActivity
         Adapter adapter = new Adapter(getSupportFragmentManager());
         adapter.addFragment(new MapFragment(), "地圖");
         adapter.addFragment(new MarkFragment(), "圖標");
-        adapter.addFragment(new RouteFragment(), "路線");
+//        adapter.addFragment(new RouteFragment(), "路線");
+  //      adapter.addFragment(new TestFragment(), "路線");
+
 
         viewPager.setAdapter(adapter);
     }
@@ -154,6 +159,12 @@ public class MainActivity extends AppCompatActivity
         public CharSequence getPageTitle(int position) {
             return mFragmentTitles.get(position);
         }
+    }
+
+    private void PhysiologicalMap(){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, PhysiologicalMapActivity.class);
+        startActivity(intent);
     }
 
     private void GenderInfor() {
