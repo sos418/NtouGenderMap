@@ -35,10 +35,14 @@ public class MarkFragment extends Fragment  {
     private String mParam2;
 
     public CheckBox checkBoxBathroom;
-    public CheckBox checkBoxWater;
+    public CheckBox checkBoxWater,checkBoxGarbage,checkBoxBaby,checkBoxSomke,checkBoxWatch,checkBoxCar,checkBoxNobathroom
+            ,checkBoxNight,checkBoxLove,checkBoxSafe;
     public TileView tileView;
-    public ImageView imageView;
-    public ImageView imageView1;
+    public ImageView bathroomImg;
+    public ImageView waterImg;
+    public ImageView garbageImg,garbageImg1;
+    public ImageView babyImg,smokeImg,watchImg,carImg,nobathroomImg,nightImg,loveImg,safeImg;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -70,6 +74,7 @@ public class MarkFragment extends Fragment  {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
 
     }
@@ -79,72 +84,221 @@ public class MarkFragment extends Fragment  {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_mark,container,false);
-        imageView = new ImageView(getActivity());
-        imageView.setImageResource( R.drawable.car);
-        imageView1 = new ImageView(getActivity());
-        imageView1.setImageResource(R.drawable.water);
+
 
         checkBoxBathroom = (CheckBox)v.findViewById(R.id.checkboxBathroom);
         checkBoxWater = (CheckBox)v.findViewById(R.id.checkboxWater);
+        checkBoxGarbage = (CheckBox)v.findViewById(R.id.checkboxGarbage);
+        checkBoxBaby = (CheckBox)v.findViewById(R.id.checkboxBaby);
+        checkBoxSomke = (CheckBox)v.findViewById(R.id.checkboxSmoke);
+        checkBoxWatch = (CheckBox)v.findViewById(R.id.checkboxWatch);
+        checkBoxCar = (CheckBox)v.findViewById(R.id.checkboxCar);
+        checkBoxNobathroom = (CheckBox)v.findViewById(R.id.checkboxNobathroom);
+        checkBoxNight = (CheckBox)v.findViewById(R.id.checkboxNight);
+        checkBoxLove = (CheckBox)v.findViewById(R.id.checkboxLove);
+        checkBoxSafe = (CheckBox)v.findViewById(R.id.checkboxSafe);
 
-        checkBoxBathroom.setOnCheckedChangeListener(checkBoxListener);
-        checkBoxWater.setOnCheckedChangeListener(CCC);
+        checkBoxBathroom.setOnCheckedChangeListener(checkListener);
+        checkBoxWater.setOnCheckedChangeListener(checkListener);
+        checkBoxGarbage.setOnCheckedChangeListener(checkListener);
+        checkBoxBaby.setOnCheckedChangeListener(checkListener);
+        checkBoxSomke.setOnCheckedChangeListener(checkListener);
+        checkBoxWatch.setOnCheckedChangeListener(checkListener);
+        checkBoxCar.setOnCheckedChangeListener(checkListener);
+        checkBoxNobathroom.setOnCheckedChangeListener(checkListener);
+        checkBoxNight.setOnCheckedChangeListener(checkListener);
+        checkBoxLove.setOnCheckedChangeListener(checkListener);
+        checkBoxSafe.setOnCheckedChangeListener(checkListener);
+
 
 
         // Inflate the layout for this fragment
         return v;
     }
 
-    private CheckBox.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
+    private CheckBox.OnCheckedChangeListener checkListener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             switch (buttonView.getId()){
                 case R.id.checkboxBathroom:
                     if (checkBoxBathroom.isChecked())
                     {
-                        addPin(500,1000);
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+                        bathroomImg = new ImageView(getActivity());
+                        bathroomImg.setImageResource(R.drawable.bathroom);
+                        tileView.addMarker( bathroomImg, 2000, 2000, null, null );
                     }
                     else {
-                        removePin(500,1000);
+                        removePin(bathroomImg);
                     }
-            }
-        }
-    };
-
-    private CheckBox.OnCheckedChangeListener CCC = new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            switch (buttonView.getId()){
                 case R.id.checkboxWater:
                     if (checkBoxWater.isChecked())
                     {
                         tileView = (TileView)getActivity().findViewById(R.id.tileView);
-                        tileView.addMarker( imageView1, 50, 50, null, null );
+
+                        waterImg = new ImageView(getActivity());
+                        waterImg.setImageResource(R.drawable.water);
+                        tileView.addMarker( watchImg, 2000, 2000, null, null );
                     }
                     else {
-                        tileView.removeMarker(imageView1);
+                        tileView.removeMarker(waterImg);
+                    }
+                case R.id.checkboxGarbage:
+                    if (checkBoxGarbage.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        garbageImg = new ImageView(getActivity());
+                        garbageImg.setImageResource(R.drawable.garbage);
+                        tileView.addMarker( garbageImg, 500, 1000, null, null );
+                        garbageImg1 = new ImageView(getActivity());
+                        garbageImg1.setImageResource(R.drawable.garbage);
+                        tileView.addMarker( garbageImg1,500,500,null,null);
+                    }
+                    else {
+                        tileView.removeMarker(garbageImg);
+                        tileView.removeMarker(garbageImg1);
+                    }
+                case R.id.checkboxBaby:
+                    if (checkBoxBaby.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        babyImg = new ImageView(getActivity());
+                        babyImg.setImageResource(R.drawable.baby);
+                        tileView.addMarker( babyImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(babyImg);
+                    }
+                case R.id.checkboxSmoke:
+                    if (checkBoxSomke.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        smokeImg = new ImageView(getActivity());
+                        smokeImg.setImageResource(R.drawable.smoke);
+                        tileView.addMarker( smokeImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(smokeImg);
+                    }
+                case R.id.checkboxWatch:
+                    if (checkBoxWatch.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        watchImg = new ImageView(getActivity());
+                        watchImg.setImageResource(R.drawable.watch);
+                        tileView.addMarker( watchImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(watchImg);
+                    }
+                case R.id.checkboxCar:
+                    if (checkBoxCar.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        carImg = new ImageView(getActivity());
+                        carImg.setImageResource(R.drawable.car);
+                        tileView.addMarker( carImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(carImg);
+                    }
+                case R.id.checkboxNobathroom:
+                    if (checkBoxNobathroom.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        nobathroomImg = new ImageView(getActivity());
+                        nobathroomImg.setImageResource(R.drawable.nobathroom);
+                        tileView.addMarker( nobathroomImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(nobathroomImg);
+                    }
+                case R.id.checkboxNight:
+                    if (checkBoxNight.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        nightImg = new ImageView(getActivity());
+                        nightImg.setImageResource(R.drawable.night);
+                        tileView.addMarker( nightImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(nightImg);
+                    }
+                case R.id.checkboxLove:
+                    if (checkBoxLove.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        loveImg = new ImageView(getActivity());
+                        loveImg.setImageResource(R.drawable.love);
+                        tileView.addMarker( loveImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(loveImg);
+                    }
+                case R.id.checkboxSafe:
+                    if (checkBoxSafe.isChecked())
+                    {
+                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+
+                        safeImg = new ImageView(getActivity());
+                        safeImg.setImageResource(R.drawable.safe);
+                        tileView.addMarker( safeImg, 500, 1000, null, null );
+
+                    }
+                    else {
+                        tileView.removeMarker(safeImg);
                     }
             }
         }
     };
-
+//    private CheckBox.OnCheckedChangeListener checkListenerGarbage = new CompoundButton.OnCheckedChangeListener() {
+//        @Override
+//        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//            switch (buttonView.getId()){
+//                case R.id.checkboxGarbage:
+//                    if (checkBoxGarbage.isChecked())
+//                    {
+//                        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+//
+//                            garbageImg = new ImageView(getActivity());
+//                            garbageImg.setImageResource(R.drawable.garbage);
+//                            tileView.addMarker( garbageImg, 500, 1000, null, null );
+//                            garbageImg1 = new ImageView(getActivity());
+//                            garbageImg1.setImageResource(R.drawable.garbage);
+//                            tileView.addMarker( garbageImg1,500,500,null,null);
+//                    }
+//                    else {
+//
+//                        tileView.removeMarker(garbageImg);
+//                        tileView.removeMarker(garbageImg1);
+//                    }
+//            }
+//        }
+//    };
     public void addPin( double x, double y ) {
-        tileView = (TileView)getActivity().findViewById(R.id.tileView);
         tileView.addMarker( imageView, x, y, null, null );
     }
 
-    private void removePin( double x, double y ){
+    private void removePin(ImageView imageView ){
         tileView.removeMarker(imageView);
 
     }
 
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {

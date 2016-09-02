@@ -19,6 +19,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.github.clans.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +32,9 @@ public class MainActivity extends AppCompatActivity
         MarkFragment.OnFragmentInteractionListener, MapFragment.OnFragmentInteractionListener,
         RouteFragment.OnFragmentInteractionListener {
 
-
-
+    public TextView textView;
+    private FloatingActionButton fab12,fab22;
+    private static final int    Size    = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +56,23 @@ public class MainActivity extends AppCompatActivity
         if (viewPager != null) {
             setupViewPager(viewPager);
         }
+        viewPager.setCurrentItem(1);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
 
+        fab12 = (FloatingActionButton)findViewById(R.id.fab12);
+        fab22 = (FloatingActionButton)findViewById(R.id.fab22);
+        fab12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(MainActivity.this,RouteActivity.class);
+                startActivityForResult(intent, Size);
+            }
+        });
+        textView = (TextView)findViewById(R.id.textView);
     }
 
     @Override
@@ -117,10 +133,10 @@ public class MainActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new MapFragment(), "地圖");
+
         adapter.addFragment(new MarkFragment(), "圖標");
-//        adapter.addFragment(new RouteFragment(), "路線");
-  //      adapter.addFragment(new TestFragment(), "路線");
+        adapter.addFragment(new MapFragment(), "地圖");
+        adapter.addFragment(new RouteFragment(), "路線");
 
 
         viewPager.setAdapter(adapter);
@@ -188,5 +204,24 @@ public class MainActivity extends AppCompatActivity
         ringsong = MediaPlayer.create(MainActivity.this, R.raw.ring); //播放歌曲源
         ringsong.start(); //開始播放
     }
-
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (resultCode == RESULT_OK) {
+//            switch (requestCode) {
+//
+//                case Size:
+//
+//                    Bundle E = data.getExtras();
+//                    String ssss = E.getString("Size");
+//                    textView.setText(ssss);
+//
+//                    break;
+//
+//                default:
+//                    break;
+//            }
+//
+//        }
+//
+//    }
 }

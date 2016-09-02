@@ -19,7 +19,7 @@
         <ImageView
             android:layout_width="30sp"
             android:layout_height="30sp"
-            android:src="@drawable/barthroom"
+            android:src="@drawable/bathroom"
             />
     </LinearLayout>
     <LinearLayout
@@ -49,6 +49,7 @@
             android:text="垃圾桶"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxGarbage"
             />
         <ImageView
             android:layout_width="30sp"
@@ -66,6 +67,7 @@
             android:text="哺乳室"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxBaby"
             />
         <ImageView
             android:layout_width="30sp"
@@ -83,6 +85,7 @@
             android:text="吸菸區"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxSmoke"
             />
         <ImageView
             android:layout_width="30sp"
@@ -101,6 +104,7 @@
             android:text="監視器"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxWatch"
             />
         <ImageView
             android:layout_width="30sp"
@@ -119,6 +123,7 @@
             android:text="貼心車位"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxCar"
             />
         <ImageView
             android:layout_width="30sp"
@@ -137,6 +142,7 @@
             android:text="無障礙廁所"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxNobathroom"
             />
         <ImageView
             android:layout_width="30sp"
@@ -155,6 +161,7 @@
             android:text="夜間不宜前往"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxNight"
             />
         <ImageView
             android:layout_width="30sp"
@@ -172,6 +179,7 @@
             android:text="衛生棉販賣機"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxLove"
             />
         <ImageView
             android:layout_width="30sp"
@@ -189,6 +197,7 @@
             android:text="保險套販賣機"
             android:textSize="24dp"
             android:layout_marginBottom="5dp"
+            android:id="@+id/checkboxSafe"
             />
         <ImageView
             android:layout_width="30sp"

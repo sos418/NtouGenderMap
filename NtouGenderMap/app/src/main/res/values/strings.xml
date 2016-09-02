@@ -10,4 +10,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_gender_infor">GenderInforActivity</string>
     <string name="title_activity_physiological_map">PhysiologicalMapActivity</string>
+    <string name="title_activity_route">RouteActivity</string>
 </resources>

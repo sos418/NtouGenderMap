@@ -35,6 +35,7 @@ public class RouteFragment extends Fragment {
     private String mParam2;
 
     public CheckBox LightRuoute;
+    public CheckBox RainRoute;
     public TileView tileView;
 
     private OnFragmentInteractionListener mListener;
@@ -77,24 +78,24 @@ public class RouteFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_route,container,false);
 
         LightRuoute = (CheckBox)view.findViewById(R.id.LightRoute);
-        LightRuoute.setOnCheckedChangeListener(ddd);
+        LightRuoute.setOnCheckedChangeListener(checklistener);
 
 
         // Inflate the layout for this fragment
         return view;
     }
 
-    private CheckBox.OnCheckedChangeListener ddd = new CompoundButton.OnCheckedChangeListener() {
+    private CheckBox.OnCheckedChangeListener checklistener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             switch (buttonView.getId()){
                 case R.id.LightRoute:
                     if (LightRuoute.isChecked())
                     {
-DrawLightRoute();
+                    DrawLightRoute();
                     }
                     else {
-
+                    RemoveLightRoute();
                     }
             }
         }
@@ -105,11 +106,10 @@ DrawLightRoute();
         tileView = (TileView)getActivity().findViewById(R.id.tileView);
         tileView.drawPath( points.subList( 5, 10 ), null );
 
-
     }
 
     private void RemoveLightRoute(){
-        tileView.removePath((CompositePathView.DrawablePath) points.subList( 5, 10 ));
+        tileView.removePath((CompositePathView.DrawablePath) points.subList(5,10));
     }
 
 

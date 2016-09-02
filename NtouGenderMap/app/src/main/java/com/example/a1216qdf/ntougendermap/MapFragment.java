@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.qozix.tileview.TileView;
 
@@ -31,8 +31,7 @@ public class MapFragment extends Fragment {
     private String mParam2;
 
     public TileView tileView;
-    public TextView textView;
-
+    public ImageView imageView;
 
     private OnFragmentInteractionListener mListener;
 
@@ -76,6 +75,9 @@ public class MapFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_map,container,false);
 
+
+        imageView = new ImageView(getActivity());
+        imageView.setImageResource( R.drawable.car);
         tileView = (TileView)view.findViewById(R.id.tileView);
         tileView.setSize( 2160, 3840 );  // the original size of the untiled image
         tileView.addDetailLevel( 0.0125f, "tiles/ntou/125/%d_%d.png" );
@@ -88,6 +90,8 @@ public class MapFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
+
 
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -106,6 +110,7 @@ public class MapFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+
     }
 
     @Override

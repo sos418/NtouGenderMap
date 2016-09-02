@@ -4,20 +4,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.a1216qdf.ntougendermap.MapFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
 
     <com.qozix.tileview.TileView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tileView"
+        android:paddingTop="20px"
         ></com.qozix.tileview.TileView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:text="HI"
-        />
 
 </FrameLayout>
