@@ -11,6 +11,8 @@ import android.widget.ImageView;
 
 import com.qozix.tileview.TileView;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +89,7 @@ public class MapFragment extends Fragment {
         tileView.setMarkerAnchorPoints( -0.5f, -0.5f );
         tileView.setScale( 0.2500f );
 
+
         // Inflate the layout for this fragment
         return view;
     }
@@ -134,5 +137,20 @@ public class MapFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    private ArrayList<double[]> points = new ArrayList<>();
 
+    {
+        points.add( new double[] {1, 2} );
+        points.add( new double[] {3,6} );
+        points.add( new double[] {7, 11} );
+        points.add( new double[] {20,20} );
+        points.add( new double[] {50, 50} );
+        points.add( new double[] {60,90} );
+        points.add( new double[] {100,150} );
+        points.add( new double[] {200, 250} );
+        points.add( new double[] {300, 388} );
+        points.add( new double[] {1000,1000} );
+        points.add( new double[] {1555,1500} );
+
+    }
 }

@@ -20,6 +20,7 @@
         android:text="防風雨路線"
         android:textSize="30dp"
         android:layout_marginBottom="5dp"
+        android:id="@+id/RainRoute"
         />
     <CheckBox
         android:layout_width="wrap_content"

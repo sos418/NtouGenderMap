@@ -13,7 +13,7 @@ public class PhysiologicalMapActivity extends AppCompatActivity {
 
 
     public TileView tileView;
-    public ImageView imageView1;
+    public ImageView babyImg,loveImg,loveImg1,carImg,nightImg,nightImg1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,18 @@ public class PhysiologicalMapActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        imageView1 = new ImageView(this);
-        imageView1.setImageResource(R.drawable.water);
-
+        babyImg = new ImageView(this);
+        babyImg.setImageResource(R.drawable.mbaby);
+        loveImg = new ImageView(this);
+        loveImg.setImageResource(R.drawable.mlove);
+        loveImg1 = new ImageView(this);
+        loveImg1.setImageResource(R.drawable.mlove);
+        carImg = new ImageView(this);
+        carImg.setImageResource(R.drawable.mcar);
+        nightImg = new ImageView(this);
+        nightImg.setImageResource(R.drawable.mnight);
+        nightImg1 = new ImageView(this);
+        nightImg1.setImageResource(R.drawable.mnight);
 
 
         tileView = (TileView)findViewById(R.id.tileView1);
@@ -36,20 +45,35 @@ public class PhysiologicalMapActivity extends AppCompatActivity {
         tileView.setMarkerAnchorPoints( -0.5f, -0.5f );
         tileView.setScale( 0.2500f );
 
-        tileView.addMarker( imageView1, 1400, 2300, null, null );
+        tileView.addMarker( babyImg, 1414, 2557, null, null );
+        tileView.addMarker( loveImg, 1329, 2557, null, null );
+        tileView.addMarker( loveImg1, 746, 1306, null, null );
+        tileView.addMarker( carImg, 1292, 1616, null, null );
+        tileView.addMarker( nightImg, 418, 1872, null, null );
+        tileView.addMarker( nightImg1, 78, 1932, null, null );
 
         tileView.drawPath( points.subList( 0, 2 ), null );
         tileView.drawPath( points.subList( 1, 3 ), null );
+        tileView.drawPath( points.subList( 2, 4 ), null );
+        tileView.drawPath( points.subList( 3, 5 ), null );
+        tileView.drawPath( points.subList( 4, 6 ), null );
+        tileView.drawPath( points.subList( 5, 7 ), null );
+        tileView.drawPath( points.subList( 6, 8 ), null );
+        tileView.drawPath( points.subList( 7, 9 ), null );
     }
 
     private ArrayList<double[]> points = new ArrayList<>();
 
     {
-        points.add( new double[] {1100, 1920} );
-        points.add( new double[] {600,1920} );
-        points.add( new double[] {600, 1100} );
-
-
+        points.add( new double[] {644, 1366} );
+        points.add( new double[] {567, 1366} );
+        points.add( new double[] {563, 1656} );
+        points.add( new double[] {648, 1656} );
+        points.add( new double[] {648, 1772} );
+        points.add( new double[] {633, 2036} );
+        points.add( new double[] {965, 1772} );
+        points.add( new double[] {965, 2036} );
+        points.add( new double[] {965, 2441} );
     }
 
 }

@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.a1216qdf.routemap.RouteFragment">
+    <!-- TODO: Update blank fragment layout -->
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="夜間明亮路線"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/LightRoute"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="防風雨路線"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/RainRoute"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="平緩路線"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="運動路線"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"
+        />
+
+
+</LinearLayout>

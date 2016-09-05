@@ -1,6 +1,7 @@
 package com.example.a1216qdf.ntougendermap;
 
 import android.content.Context;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import com.qozix.tileview.TileView;
 import com.qozix.tileview.paths.CompositePathView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -78,14 +80,16 @@ public class RouteFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_route,container,false);
 
         LightRuoute = (CheckBox)view.findViewById(R.id.LightRoute);
-        LightRuoute.setOnCheckedChangeListener(checklistener);
+        LightRuoute.setOnCheckedChangeListener(checklist1);
+        RainRoute = (CheckBox)view.findViewById(R.id.RainRoute);
+        RainRoute.setOnCheckedChangeListener(checklist1);
 
 
         // Inflate the layout for this fragment
         return view;
     }
 
-    private CheckBox.OnCheckedChangeListener checklistener = new CompoundButton.OnCheckedChangeListener() {
+    private CheckBox.OnCheckedChangeListener checklist1 = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             switch (buttonView.getId()){
@@ -97,6 +101,14 @@ public class RouteFragment extends Fragment {
                     else {
                     RemoveLightRoute();
                     }
+                case R.id.RainRoute:
+                    if (RainRoute.isChecked())
+                    {
+                        DrawLightRoute();
+                    }
+                    else {
+
+                    }
             }
         }
     };
@@ -104,12 +116,17 @@ public class RouteFragment extends Fragment {
     private void DrawLightRoute(){
 
         tileView = (TileView)getActivity().findViewById(R.id.tileView);
-        tileView.drawPath( points.subList( 5, 10 ), null );
+        List<double[]> sub = points.subList(5, 10);
+        tileView.drawPath( sub, null );
 
     }
 
     private void RemoveLightRoute(){
-        tileView.removePath((CompositePathView.DrawablePath) points.subList(5,10));
+        tileView = (TileView)getActivity().findViewById(R.id.tileView);
+        List<double[]> sub = points.subList(5, 10);
+        CompositePathView.DrawablePath drawablePath = new CompositePathView.DrawablePath();
+        drawablePath.path = (Path) sub;
+        tileView.removePath(drawablePath);
     }
 
 
