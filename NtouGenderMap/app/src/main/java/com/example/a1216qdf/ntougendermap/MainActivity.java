@@ -1,16 +1,20 @@
 package com.example.a1216qdf.ntougendermap;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -20,9 +24,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionButton;
+import com.qozix.tileview.TileView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +39,12 @@ public class MainActivity extends AppCompatActivity
         RouteFragment.OnFragmentInteractionListener {
 
     public TextView textView;
-    private FloatingActionButton fab12,fab22;
-    private static final int    Size    = 3;
+    private FloatingActionButton fab12, fab22;
+    private static final int Size = 3;
+    private LocationManager locationManager;
+    private Location location;
+    private ImageView locationImage;
+    private TileView tileView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,17 +72,43 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setupWithViewPager(viewPager);
 
 
-        fab12 = (FloatingActionButton)findViewById(R.id.fab12);
-        fab22 = (FloatingActionButton)findViewById(R.id.fab22);
+        fab12 = (FloatingActionButton) findViewById(R.id.fab12);
+        fab22 = (FloatingActionButton) findViewById(R.id.fab22);
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         fab12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,RouteActivity.class);
+                Intent intent = new Intent(MainActivity.this, RouteActivity.class);
                 startActivityForResult(intent, Size);
             }
         });
-        textView = (TextView)findViewById(R.id.textView);
+        fab22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tileView = (TileView) findViewById(R.id.tileView);
+                locationImage = new ImageView(MainActivity.this);
+                locationImage.setImageResource(R.drawable.mgarbage);
+
+
+                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                String s = LocationManager.GPS_PROVIDER;
+                location = locationManager.getLastKnownLocation(s);
+                locationManager.requestLocationUpdates(s,0,0,locationListener);
+                tileView.addMarker(locationImage,121.773265, 25.150501,null,null);
+
+            }
+        });
+        textView = (TextView) findViewById(R.id.textView);
     }
 
     @Override
@@ -177,7 +213,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void PhysiologicalMap(){
+    private void PhysiologicalMap() {
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, PhysiologicalMapActivity.class);
         startActivity(intent);
@@ -190,19 +226,30 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void SOSCall() {
-        Uri uri = Uri.parse(("tel:0952875757"));
+        Uri uri = Uri.parse(("tel:0224622192"));
         Intent intent = new Intent(Intent.ACTION_CALL, uri);
-        if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CALL_PHONE) ==
-                PackageManager.PERMISSION_GRANTED) {
-            startActivity(intent);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
         }
+        startActivity(intent);
+
     }
 
     private void SOSBell() {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, SosBellActivity.class);
         MediaPlayer ringsong = new MediaPlayer();
         ringsong.reset();
-        ringsong = MediaPlayer.create(MainActivity.this, R.raw.ring); //播放歌曲源
-        ringsong.start(); //開始播放
+        ringsong = MediaPlayer.create(MainActivity.this, R.raw.ring);
+        ringsong.start();
+        startActivity(intent);
     }
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -224,4 +271,26 @@ public class MainActivity extends AppCompatActivity
 //        }
 //
 //    }
+
+    private LocationListener locationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
 }

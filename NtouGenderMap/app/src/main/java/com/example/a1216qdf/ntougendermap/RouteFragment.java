@@ -1,7 +1,8 @@
 package com.example.a1216qdf.ntougendermap;
 
 import android.content.Context;
-import android.graphics.Path;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -40,7 +41,9 @@ public class RouteFragment extends Fragment {
     public CheckBox RainRoute;
     public TileView tileView;
 
+    public List<double[]> sub ;
     private OnFragmentInteractionListener mListener;
+    private CompositePathView.DrawablePath drawablePath;
 
     public RouteFragment() {
         // Required empty public constructor
@@ -71,6 +74,7 @@ public class RouteFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -78,7 +82,6 @@ public class RouteFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_route,container,false);
-
         LightRuoute = (CheckBox)view.findViewById(R.id.LightRoute);
         LightRuoute.setOnCheckedChangeListener(checklist1);
         RainRoute = (CheckBox)view.findViewById(R.id.RainRoute);
@@ -96,10 +99,12 @@ public class RouteFragment extends Fragment {
                 case R.id.LightRoute:
                     if (LightRuoute.isChecked())
                     {
-                    DrawLightRoute();
+                        DrawLightRoute();
                     }
                     else {
-                    RemoveLightRoute();
+
+                        RemoveLightRoute();
+
                     }
                 case R.id.RainRoute:
                     if (RainRoute.isChecked())
@@ -114,18 +119,22 @@ public class RouteFragment extends Fragment {
     };
 
     private void DrawLightRoute(){
-
         tileView = (TileView)getActivity().findViewById(R.id.tileView);
-        List<double[]> sub = points.subList(5, 10);
-        tileView.drawPath( sub, null );
+        sub = points.subList(1, 5);
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(Color.BLUE);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(10);
+        drawablePath = tileView.drawPath(points.subList(1, 5), paint);
+        tileView.drawPath(drawablePath);
 
+        //錯誤寫法
+//        CompositePathView.DrawablePath drawablePath = (CompositePathView.DrawablePath) points.subList(1,5);
+//        tileView.drawPath(drawablePath);
     }
 
     private void RemoveLightRoute(){
-        tileView = (TileView)getActivity().findViewById(R.id.tileView);
-        List<double[]> sub = points.subList(5, 10);
-        CompositePathView.DrawablePath drawablePath = new CompositePathView.DrawablePath();
-        drawablePath.path = (Path) sub;
         tileView.removePath(drawablePath);
     }
 
@@ -174,17 +183,18 @@ public class RouteFragment extends Fragment {
     private ArrayList<double[]> points = new ArrayList<>();
 
     {
-        points.add( new double[] {1, 2} );
-        points.add( new double[] {3,6} );
-        points.add( new double[] {7, 11} );
-        points.add( new double[] {20,20} );
-        points.add( new double[] {50, 50} );
-        points.add( new double[] {60,90} );
-        points.add( new double[] {100,150} );
-        points.add( new double[] {200, 250} );
-        points.add( new double[] {300, 388} );
-        points.add( new double[] {1000,1000} );
-        points.add( new double[] {1555,1500} );
+        points.add( new double[] {620,1656} );
+        points.add( new double[] {648, 1656} );
+        points.add( new double[] {648, 1772} );
+        points.add( new double[] {965, 1772} );
+        points.add( new double[] {965, 2036} );
+        points.add( new double[] {965, 2441} );
+        points.add( new double[] {965, 1772} );
+        points.add( new double[] {965, 2036} );
+        points.add( new double[] {965, 2441} );
+        points.add( new double[] {965, 1772} );
+        points.add( new double[] {965, 2036} );
+        points.add( new double[] {965, 2441} );
 
     }
 }
