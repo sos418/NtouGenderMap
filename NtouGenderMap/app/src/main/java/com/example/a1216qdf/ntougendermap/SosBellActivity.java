@@ -9,5 +9,6 @@ public class SosBellActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos_bell);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

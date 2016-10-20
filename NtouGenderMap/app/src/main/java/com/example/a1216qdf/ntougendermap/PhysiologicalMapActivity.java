@@ -52,14 +52,7 @@ public class PhysiologicalMapActivity extends AppCompatActivity {
         tileView.addMarker( nightImg, 418, 1872, null, null );
         tileView.addMarker( nightImg1, 78, 1932, null, null );
 
-        tileView.drawPath( points.subList( 0, 2 ), null );
-        tileView.drawPath( points.subList( 1, 3 ), null );
-        tileView.drawPath( points.subList( 2, 4 ), null );
-        tileView.drawPath( points.subList( 3, 5 ), null );
-        tileView.drawPath( points.subList( 4, 6 ), null );
-        tileView.drawPath( points.subList( 5, 7 ), null );
-        tileView.drawPath( points.subList( 6, 8 ), null );
-        tileView.drawPath( points.subList( 7, 9 ), null );
+        tileView.drawPath( points.subList( 0, 10 ), null );
     }
 
     private ArrayList<double[]> points = new ArrayList<>();
@@ -70,10 +63,11 @@ public class PhysiologicalMapActivity extends AppCompatActivity {
         points.add( new double[] {563, 1656} );
         points.add( new double[] {648, 1656} );
         points.add( new double[] {648, 1772} );
-        points.add( new double[] {633, 2036} );
         points.add( new double[] {965, 1772} );
-        points.add( new double[] {965, 2036} );
         points.add( new double[] {965, 2441} );
+        points.add( new double[] {1113, 2441} );
+        points.add( new double[] {1113, 2470} );
+        points.add( new double[] {1207, 2470} );
     }
 
 }

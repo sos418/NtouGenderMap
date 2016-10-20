@@ -134,13 +134,12 @@ public class RouteFragment extends Fragment {
 
     private void DrawLightRoute(){
         tileView = (TileView)getActivity().findViewById(R.id.tileView);
-        sub = points.subList(1, 5);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(Color.BLUE);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(10);
-        drawablePath = tileView.drawPath(points.subList(1, 5), paint);
+        drawablePath = tileView.drawPath(points.subList(0, 6), paint);
         tileView.drawPath(drawablePath);
 
         //錯誤寫法
@@ -160,7 +159,7 @@ public class RouteFragment extends Fragment {
         paint.setColor(Color.CYAN);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(10);
-        drawablePath1 = tileView.drawPath(points.subList(5, 13), paint);
+        drawablePath1 = tileView.drawPath(points.subList(6, 14), paint);
         tileView.drawPath(drawablePath1);
     }
 
@@ -176,7 +175,7 @@ public class RouteFragment extends Fragment {
         paint.setColor(Color.YELLOW);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(10);
-        drawablePath2 = tileView.drawPath(points.subList(13, 19), paint);
+        drawablePath2 = tileView.drawPath(points.subList(14, 20), paint);
         tileView.drawPath(drawablePath2);
     }
 
@@ -227,13 +226,15 @@ public class RouteFragment extends Fragment {
     private ArrayList<double[]> points = new ArrayList<>();
 
     {
-        points.add( new double[] {620, 1656} );
-        points.add( new double[] {648, 1656} );
+        //Light
+        points.add( new double[] {1050, 1544} );
+        points.add( new double[] {648, 1544} );
         points.add( new double[] {648, 1772} );
         points.add( new double[] {965, 1772} );
         points.add( new double[] {965, 2036} );
+        points.add( new double[] {1203, 2036} );
 
-
+        //Rain
         points.add( new double[] {260, 940} );
         points.add( new double[] {260, 1361} );
         points.add( new double[] {682, 1361} );
@@ -243,16 +244,13 @@ public class RouteFragment extends Fragment {
         points.add( new double[] {1015, 1658} );
         points.add( new double[] {1015, 2394} );
 
+        //Smooth
         points.add( new double[] {1231, 1455} );
         points.add( new double[] {600, 1455} );
         points.add( new double[] {600, 2510} );
         points.add( new double[] {945, 2510} );
         points.add( new double[] {945, 1790} );
         points.add( new double[] {611, 1790} );
-//
-//        682,1361
-//        575,1361
-//                575,1658
-//                        659,1657
+
     }
 }
