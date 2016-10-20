@@ -44,6 +44,11 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".SosBellActivity"></activity>
+
+        <activity
+            android:name="com.example.a1216qdf.ntougendermap.intro.DefaultIntro"
+            android:label="DefaultIntro"
+            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>

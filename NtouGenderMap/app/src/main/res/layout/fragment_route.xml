@@ -9,7 +9,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="夜間明亮路線"
+        android:text="夜間明亮路線(藍色)"
         android:textSize="30dp"
         android:layout_marginBottom="5dp"
         android:id="@+id/LightRoute"
@@ -17,7 +17,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="防風雨路線"
+        android:text="防風雨路線(青綠色)"
         android:textSize="30dp"
         android:layout_marginBottom="5dp"
         android:id="@+id/RainRoute"
@@ -25,16 +25,14 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="平緩路線"
+        android:text="平緩路線(黃色)"
         android:textSize="30dp"
         android:layout_marginBottom="5dp"
+        android:id="@+id/SmoothRoute"
         />
-    <CheckBox
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="運動路線"
-        android:textSize="30dp"
-        android:layout_marginBottom="5dp"
-        />
+        android:text="路線待新增"/>
 
 </LinearLayout>

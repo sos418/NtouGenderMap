@@ -3,37 +3,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_FriendlyMap"
-            android:icon="@drawable/ic_frendlymap"
-            android:title="友善地圖" />
-        <item
             android:id="@+id/nav_PhysiologicalMap"
             android:icon="@drawable/ic_physiologicalmap"
-            android:title="生理期地圖" />
+            android:title="@string/physiologicalmap" />
         <item
             android:id="@+id/nav_GenderInformation"
             android:icon="@drawable/ic_genderinformation"
-            android:title="性別相關資訊" />
+            android:title="@string/genderinformation" />
         <item
             android:id="@+id/nav_SOSCall"
             android:icon="@drawable/ic_soscall"
-            android:title="求救電話" />
+            android:title="@string/soscall" />
         <item
             android:id="@+id/nav_SOSBell"
             android:icon="@drawable/ic_sosbell"
-            android:title="求救警鈴"/>
+            android:title="@string/sosbell"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/nav_subtitle">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_AppRate"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/apprate" />
         </menu>
     </item>
 

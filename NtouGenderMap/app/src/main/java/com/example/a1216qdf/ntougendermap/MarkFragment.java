@@ -38,9 +38,10 @@ public class MarkFragment extends Fragment  {
     public CheckBox checkBoxWater,checkBoxGarbage,checkBoxBaby,checkBoxSomke,checkBoxWatch,checkBoxCar,checkBoxNobathroom
             ,checkBoxNight,checkBoxLove,checkBoxSafe;
     public TileView tileView;
-    public ImageView bathroomImg,waterImg;
+    public ImageView bathroomImg,bathroomImg1,bathroomImg2,bathroomImg3,bathroomImg4,bathroomImg5,bathroomImg6,bathroomImg7,bathroomImg8,bathroomImg9,bathroomImg10
+            ,waterImg,waterImg1,waterImg2,waterImg3,waterImg4,waterImg5,waterImg6;
     public ImageView garbageImg,garbageImg1;
-    public ImageView babyImg,smokeImg,watchImg,carImg,nobathroomImg,nightImg,loveImg,safeImg;
+    public ImageView babyImg,smokeImg,watchImg,watchImg1,watchImg2,carImg,nobathroomImg,nobathroomImg1,nightImg,nightImg1,loveImg,safeImg;
 
 
     private OnFragmentInteractionListener mListener;
@@ -125,13 +126,53 @@ public class MarkFragment extends Fragment  {
                         tileView = (TileView)getActivity().findViewById(R.id.tileView);
                         bathroomImg = new ImageView(getActivity());
                         bathroomImg.setImageResource(R.drawable.mbathroom);
-                        tileView.addMarker( bathroomImg, 2000, 2000, null, null );
-
+                        bathroomImg1 = new ImageView(getActivity());
+                        bathroomImg1.setImageResource(R.drawable.mbathroom);
+                        bathroomImg2 = new ImageView(getActivity());
+                        bathroomImg2.setImageResource(R.drawable.mbathroom);
+                        bathroomImg3 = new ImageView(getActivity());
+                        bathroomImg3.setImageResource(R.drawable.mbathroom);
+                        bathroomImg4 = new ImageView(getActivity());
+                        bathroomImg4.setImageResource(R.drawable.mbathroom);
+                        bathroomImg5 = new ImageView(getActivity());
+                        bathroomImg5.setImageResource(R.drawable.mbathroom);
+                        bathroomImg6 = new ImageView(getActivity());
+                        bathroomImg6.setImageResource(R.drawable.mbathroom);
+                        bathroomImg7 = new ImageView(getActivity());
+                        bathroomImg7.setImageResource(R.drawable.mbathroom);
+                        bathroomImg8 = new ImageView(getActivity());
+                        bathroomImg8.setImageResource(R.drawable.mbathroom);
+                        bathroomImg9 = new ImageView(getActivity());
+                        bathroomImg9.setImageResource(R.drawable.mbathroom);
+                        bathroomImg10 = new ImageView(getActivity());
+                        bathroomImg10.setImageResource(R.drawable.mbathroom);
+                        tileView.addMarker( bathroomImg, 150, 1865, null, null );
+                        tileView.addMarker( bathroomImg1, 350, 1373, null, null );
+                        tileView.addMarker( bathroomImg2, 300, 1325, null, null );
+                        tileView.addMarker( bathroomImg3, 515, 1307, null, null );
+                        tileView.addMarker( bathroomImg4, 100, 1440, null, null );
+                        tileView.addMarker( bathroomImg5, 550, 677, null, null );
+                        tileView.addMarker( bathroomImg6, 860, 1325, null, null );
+                        tileView.addMarker( bathroomImg7, 720, 2057, null, null );
+                        tileView.addMarker( bathroomImg8, 730, 2400, null, null );
+                        tileView.addMarker( bathroomImg9, 1400, 2490, null, null );
+                        tileView.addMarker( bathroomImg10, 1320, 2735, null, null );
                     }
                     else {
                         removePin(bathroomImg);
+                        removePin(bathroomImg1);
+                        removePin(bathroomImg2);
+                        removePin(bathroomImg3);
+                        removePin(bathroomImg4);
+                        removePin(bathroomImg5);
+                        removePin(bathroomImg6);
+                        removePin(bathroomImg7);
+                        removePin(bathroomImg8);
+                        removePin(bathroomImg9);
+                        removePin(bathroomImg10);
 
                     }
+                    break;
                 case R.id.checkboxWater:
                     if (checkBoxWater.isChecked())
                     {
@@ -139,11 +180,36 @@ public class MarkFragment extends Fragment  {
 
                         waterImg = new ImageView(getActivity());
                         waterImg.setImageResource(R.drawable.mwater);
-                        tileView.addMarker( waterImg, 2000, 2075, null, null );
+                        waterImg1 = new ImageView(getActivity());
+                        waterImg1.setImageResource(R.drawable.mwater);
+                        waterImg2 = new ImageView(getActivity());
+                        waterImg2.setImageResource(R.drawable.mwater);
+                        waterImg3 = new ImageView(getActivity());
+                        waterImg3.setImageResource(R.drawable.mwater);
+                        waterImg4 = new ImageView(getActivity());
+                        waterImg4.setImageResource(R.drawable.mwater);
+                        waterImg5 = new ImageView(getActivity());
+                        waterImg5.setImageResource(R.drawable.mwater);
+                        waterImg6 = new ImageView(getActivity());
+                        waterImg6.setImageResource(R.drawable.mwater);
+                        tileView.addMarker( waterImg, 160, 1865, null, null );
+                        tileView.addMarker( waterImg1, 360, 1673, null, null );
+                        tileView.addMarker( waterImg2, 310, 1325, null, null );
+                        tileView.addMarker( waterImg3, 555, 1307, null, null );
+                        tileView.addMarker( waterImg4, 760, 2057, null, null );
+                        tileView.addMarker( waterImg5, 740, 2400, null, null );
+                        tileView.addMarker( waterImg6, 1410, 2490, null, null );
                     }
                     else {
-                        tileView.removeMarker(waterImg);
+                        removePin(waterImg);
+                        removePin(waterImg1);
+                        removePin(waterImg2);
+                        removePin(waterImg3);
+                        removePin(waterImg4);
+                        removePin(waterImg5);
+                        removePin(waterImg6);
                     }
+                    break;
                 case R.id.checkboxGarbage:
                     if (checkBoxGarbage.isChecked())
                     {
@@ -151,15 +217,16 @@ public class MarkFragment extends Fragment  {
 
                         garbageImg = new ImageView(getActivity());
                         garbageImg.setImageResource(R.drawable.mgarbage);
-                        tileView.addMarker( garbageImg, 500, 1000, null, null );
+                        tileView.addMarker( garbageImg, 350, 1683, null, null );
                         garbageImg1 = new ImageView(getActivity());
                         garbageImg1.setImageResource(R.drawable.mgarbage);
-                        tileView.addMarker( garbageImg1,500,500,null,null);
+                        tileView.addMarker( garbageImg1,600,2780,null,null);
                     }
                     else {
                         tileView.removeMarker(garbageImg);
                         tileView.removeMarker(garbageImg1);
                     }
+                    break;
                 case R.id.checkboxBaby:
                     if (checkBoxBaby.isChecked())
                     {
@@ -167,12 +234,13 @@ public class MarkFragment extends Fragment  {
 
                         babyImg = new ImageView(getActivity());
                         babyImg.setImageResource(R.drawable.mbaby);
-                        tileView.addMarker( babyImg, 500, 1000, null, null );
+                        tileView.addMarker( babyImg, 1315, 2730, null, null );
 
                     }
                     else {
                         tileView.removeMarker(babyImg);
                     }
+                    break;
                 case R.id.checkboxSmoke:
                     if (checkBoxSomke.isChecked())
                     {
@@ -180,12 +248,13 @@ public class MarkFragment extends Fragment  {
 
                         smokeImg = new ImageView(getActivity());
                         smokeImg.setImageResource(R.drawable.msmoke);
-                        tileView.addMarker( smokeImg, 500, 1000, null, null );
+                        tileView.addMarker( smokeImg, 110, 1846, null, null );
 
                     }
                     else {
                         tileView.removeMarker(smokeImg);
                     }
+                    break;
                 case R.id.checkboxWatch:
                     if (checkBoxWatch.isChecked())
                     {
@@ -193,12 +262,20 @@ public class MarkFragment extends Fragment  {
 
                         watchImg = new ImageView(getActivity());
                         watchImg.setImageResource(R.drawable.mwatch);
-                        tileView.addMarker( watchImg, 500, 1000, null, null );
-
+                        watchImg1 = new ImageView(getActivity());
+                        watchImg1.setImageResource(R.drawable.mwatch);
+                        watchImg2 = new ImageView(getActivity());
+                        watchImg2.setImageResource(R.drawable.mwatch);
+                        tileView.addMarker( watchImg, 975, 1519, null, null );
+                        tileView.addMarker( watchImg1, 525, 1307, null, null );
+                        tileView.addMarker( watchImg2, 1305, 2730, null, null );
                     }
                     else {
                         tileView.removeMarker(watchImg);
+                        tileView.removeMarker(watchImg1);
+                        tileView.removeMarker(watchImg2);
                     }
+                    break;
                 case R.id.checkboxCar:
                     if (checkBoxCar.isChecked())
                     {
@@ -206,12 +283,13 @@ public class MarkFragment extends Fragment  {
 
                         carImg = new ImageView(getActivity());
                         carImg.setImageResource(R.drawable.mcar);
-                        tileView.addMarker( carImg, 500, 1000, null, null );
+                        tileView.addMarker( carImg, 1291, 1577, null, null );
 
                     }
                     else {
                         tileView.removeMarker(carImg);
                     }
+                    break;
                 case R.id.checkboxNobathroom:
                     if (checkBoxNobathroom.isChecked())
                     {
@@ -219,12 +297,17 @@ public class MarkFragment extends Fragment  {
 
                         nobathroomImg = new ImageView(getActivity());
                         nobathroomImg.setImageResource(R.drawable.mnobathroom);
-                        tileView.addMarker( nobathroomImg, 500, 1000, null, null );
-
+                        nobathroomImg1 = new ImageView(getActivity());
+                        nobathroomImg1.setImageResource(R.drawable.mnobathroom);
+                        tileView.addMarker( nobathroomImg, 320, 1800, null, null );
+                        tileView.addMarker( nobathroomImg1, 515, 1317, null, null );
                     }
                     else {
                         tileView.removeMarker(nobathroomImg);
+                        tileView.removeMarker(nobathroomImg1);
+
                     }
+                    break;
                 case R.id.checkboxNight:
                     if (checkBoxNight.isChecked())
                     {
@@ -232,12 +315,16 @@ public class MarkFragment extends Fragment  {
 
                         nightImg = new ImageView(getActivity());
                         nightImg.setImageResource(R.drawable.mnight);
-                        tileView.addMarker( nightImg, 500, 1000, null, null );
-
+                        nightImg1 = new ImageView(getActivity());
+                        nightImg1.setImageResource(R.drawable.mnight);
+                        tileView.addMarker( nightImg, 90, 1926, null, null );
+                        tileView.addMarker( nightImg1, 417, 1865, null, null );
                     }
                     else {
                         tileView.removeMarker(nightImg);
+                        tileView.removeMarker(nightImg1);
                     }
+                    break;
                 case R.id.checkboxLove:
                     if (checkBoxLove.isChecked())
                     {
@@ -245,12 +332,13 @@ public class MarkFragment extends Fragment  {
 
                         loveImg = new ImageView(getActivity());
                         loveImg.setImageResource(R.drawable.mlove);
-                        tileView.addMarker( loveImg, 500, 1000, null, null );
+                        tileView.addMarker( loveImg, 110, 1440, null, null );
 
                     }
                     else {
                         tileView.removeMarker(loveImg);
                     }
+                    break;
                 case R.id.checkboxSafe:
                     if (checkBoxSafe.isChecked())
                     {
@@ -258,12 +346,13 @@ public class MarkFragment extends Fragment  {
 
                         safeImg = new ImageView(getActivity());
                         safeImg.setImageResource(R.drawable.msafe);
-                        tileView.addMarker( safeImg, 500, 1000, null, null );
+                        tileView.addMarker( safeImg, 150, 1855, null, null );
 
                     }
                     else {
                         tileView.removeMarker(safeImg);
                     }
+                    break;
             }
         }
     };

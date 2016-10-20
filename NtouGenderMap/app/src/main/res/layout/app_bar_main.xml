@@ -58,15 +58,21 @@
             android:id="@+id/fab12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
+            android:src="@drawable/delete"
             style="@style/MenuButtonsStyle" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
+            android:src="@drawable/getlocation"
             style="@style/MenuButtonsStyle" />
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/getroute"
+            style="@style/MenuButtonsStyle" />
     </com.github.clans.fab.FloatingActionMenu>
 </android.support.design.widget.CoordinatorLayout>

@@ -11,4 +11,17 @@
     <string name="title_activity_gender_infor">GenderInforActivity</string>
     <string name="title_activity_physiological_map">PhysiologicalMapActivity</string>
     <string name="title_activity_route">RouteActivity</string>
+
+    <string name="skip">你省略導覽囉!!</string>
+
+    <!--側選單-->
+    <string name="friendlymap">友善地圖</string>
+    <string name="physiologicalmap">生理期地圖</string>
+    <string name="genderinformation">友善資訊</string>
+    <string name="soscall">求救電話</string>
+    <string name="sosbell">求救警鈴</string>
+    <string name="nav_subtitle">附屬功能</string>
+    <string name="apprate">APP評分</string>
+
+
 </resources>

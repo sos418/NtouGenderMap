@@ -86,25 +86,25 @@ public class MapFragment extends Fragment {
         imageView = new ImageView(getActivity());
         imageView.setImageResource( R.drawable.car);
         tileView = (TileView)view.findViewById(R.id.tileView);
-//        tileView.setSize( 2160, 3840 );
-//        tileView.addDetailLevel( 0.0125f, "tiles/ntou/125/%d_%d.png" );
-//        tileView.addDetailLevel( 0.2500f, "tiles/ntou/250/%d_%d.png" );
-//        tileView.addDetailLevel( 0.5000f, "tiles/ntou/500/%d_%d.png" );
-//        tileView.addDetailLevel( 1.0000f, "tiles/ntou/1000/%d_%d.png" );
-//        tileView.setMarkerAnchorPoints( -0.5f, -0.5f );
-//        tileView.setScale( 0.2500f );
+        tileView.setSize( 2160, 3840 );
+        tileView.addDetailLevel( 0.0125f, "tiles/ntou/125/%d_%d.png" );
+        tileView.addDetailLevel( 0.2500f, "tiles/ntou/250/%d_%d.png" );
+        tileView.addDetailLevel( 0.5000f, "tiles/ntou/500/%d_%d.png" );
+        tileView.addDetailLevel( 1.0000f, "tiles/ntou/1000/%d_%d.png" );
+        tileView.setMarkerAnchorPoints( -0.5f, -0.5f );
+        tileView.setScale( 0.2500f );
 
 
-        tileView.setSize( 8384, 3408 );
-        tileView.setBackgroundColor( 0xFFe7e7e7 );
-        tileView.addDetailLevel( 1.0000f, "tiles/ocean/500/%d_%d.png" );
-        tileView.setMarkerAnchorPoints( -0.5f, -1.0f );
-        tileView.defineBounds(
-                NORTH_WEST_LONGITUDE,
-                NORTH_WEST_LATITUDE,
-                SOUTH_EAST_LONGITUDE,
-                SOUTH_EAST_LATITUDE
-        );
+//        tileView.setSize( 8384, 3408 );
+//        tileView.setBackgroundColor( 0xFFe7e7e7 );
+//        tileView.addDetailLevel( 1.0000f, "tiles/ocean/500/%d_%d.png" );
+//        tileView.setMarkerAnchorPoints( -0.5f, -1.0f );
+//        tileView.defineBounds(
+//                NORTH_WEST_LONGITUDE,
+//                NORTH_WEST_LATITUDE,
+//                SOUTH_EAST_LONGITUDE,
+//                SOUTH_EAST_LATITUDE
+//        );
 
         // Inflate the layout for this fragment
         return view;
