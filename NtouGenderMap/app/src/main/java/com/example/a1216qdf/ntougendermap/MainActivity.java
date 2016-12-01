@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a1216qdf.ntougendermap.intro.DefaultIntro;
+import com.facebook.stetho.Stetho;
 import com.github.clans.fab.FloatingActionButton;
 import com.qozix.tileview.TileView;
 
@@ -56,7 +57,13 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(
+                                Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(
+                                Stetho.defaultInspectorModulesProvider(this))
+                        .build());
         //  Declare a new thread to do a preference check
         Thread t = new Thread(new Runnable() {
             @Override

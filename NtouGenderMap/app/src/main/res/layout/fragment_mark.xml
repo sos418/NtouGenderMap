@@ -5,59 +5,92 @@
     android:orientation="vertical"
     tools:context="com.example.a1216qdf.ntougendermap.MarkFragment">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="廁所"
-            android:textSize="24dp"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/checkboxBathroom"
-            />
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:src="@drawable/bathroom"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="飲水機"
-            android:textSize="24dp"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/checkboxWater"
-            />
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:src="@drawable/water"
-            />
-    </LinearLayout>
+        <TableRow>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/checkboxBathroom"
+                android:button="@drawable/customdrawablecheckbox"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/checkboxWater"
+                android:button="@drawable/customwater"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/checkboxGarbage"
+                android:button="@drawable/customgarbage"
+                />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="垃圾桶"
-            android:textSize="24dp"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/checkboxGarbage"
-            />
-        <ImageView
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:src="@drawable/garbage"
-            />
+        </TableRow>
 
-    </LinearLayout>
+
+    </TableLayout>
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="廁所"-->
+            <!--android:textSize="24dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:id="@+id/checkboxBathroom"-->
+            <!--android:button="customdrawablecheckbox"-->
+            <!--/>-->
+        <!--<ImageView-->
+            <!--android:layout_width="30sp"-->
+            <!--android:layout_height="30sp"-->
+            <!--android:src="@drawable/bathroom"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="飲水機"-->
+            <!--android:textSize="24dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:id="@+id/checkboxWater"-->
+            <!--/>-->
+        <!--<ImageView-->
+            <!--android:layout_width="30sp"-->
+            <!--android:layout_height="30sp"-->
+            <!--android:src="@drawable/water"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="垃圾桶"-->
+            <!--android:textSize="24dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:id="@+id/checkboxGarbage"-->
+            <!--/>-->
+        <!--<ImageView-->
+            <!--android:layout_width="30sp"-->
+            <!--android:layout_height="30sp"-->
+            <!--android:src="@drawable/garbage"-->
+            <!--/>-->
+
+    <!--</LinearLayout>-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

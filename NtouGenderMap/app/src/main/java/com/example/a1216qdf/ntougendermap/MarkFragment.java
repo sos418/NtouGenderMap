@@ -1,6 +1,10 @@
 package com.example.a1216qdf.ntougendermap;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,8 +14,10 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.qozix.tileview.TileView;
+import com.qozix.tileview.markers.MarkerLayout;
 
 import java.util.ArrayList;
 
@@ -42,7 +48,9 @@ public class MarkFragment extends Fragment  {
             ,waterImg,waterImg1,waterImg2,waterImg3,waterImg4,waterImg5,waterImg6;
     public ImageView garbageImg,garbageImg1;
     public ImageView babyImg,smokeImg,watchImg,watchImg1,watchImg2,carImg,nobathroomImg,nobathroomImg1,nightImg,nightImg1,loveImg,safeImg;
-
+    private SQLiteDatabase db;
+    private Cursor markCursor;
+    private ArrayList<ImageView> bathroomMark = new ArrayList<>();
 
     private OnFragmentInteractionListener mListener;
 
@@ -146,17 +154,51 @@ public class MarkFragment extends Fragment  {
                         bathroomImg9.setImageResource(R.drawable.mbathroom);
                         bathroomImg10 = new ImageView(getActivity());
                         bathroomImg10.setImageResource(R.drawable.mbathroom);
-                        tileView.addMarker( bathroomImg, 150, 1865, null, null );
-                        tileView.addMarker( bathroomImg1, 350, 1373, null, null );
-                        tileView.addMarker( bathroomImg2, 300, 1325, null, null );
-                        tileView.addMarker( bathroomImg3, 515, 1307, null, null );
-                        tileView.addMarker( bathroomImg4, 100, 1440, null, null );
-                        tileView.addMarker( bathroomImg5, 550, 677, null, null );
-                        tileView.addMarker( bathroomImg6, 860, 1325, null, null );
-                        tileView.addMarker( bathroomImg7, 720, 2057, null, null );
-                        tileView.addMarker( bathroomImg8, 730, 2400, null, null );
-                        tileView.addMarker( bathroomImg9, 1400, 2490, null, null );
-                        tileView.addMarker( bathroomImg10, 1320, 2735, null, null );
+                        bathroomMark.add(bathroomImg);
+                        bathroomMark.add(bathroomImg1);
+                        bathroomMark.add(bathroomImg2);
+                        try {
+                            SQLiteOpenHelper starbuzzDatabaseHelper = new DatabaseHelper(getContext());
+                            db = starbuzzDatabaseHelper.getReadableDatabase();
+                            //markCursor 取得 NAME = 廁所
+                            markCursor = db.query("DRINK",
+                                    new String[] { "NAME","LATITUDE", "LONGITUDE"}, "NAME = ?",
+                                    new String[]{"廁所"}, null, null, null);
+
+//                            markCursor = db.query("DRINK",
+//                                    new String[] { "LATITUDE", "LONGITUDE"}, "NAME = ?",
+//                                    new String[]{"廁所"}, null, null, null);
+
+                            int rows_num = markCursor.getCount();	//取得資料表列數
+                            Toast toast = Toast.makeText(getActivity(),"GG!!"+rows_num,Toast.LENGTH_SHORT);
+                            toast.show();
+
+                            if(rows_num != 0) {
+                                markCursor.moveToFirst();			//將指標移至第一筆資料
+                                    for(int i=0; i<rows_num; i++) {
+                                    tileView.addMarker( bathroomMark.get(i), markCursor.getDouble(1), markCursor.getDouble(2), null, null );
+                                    markCursor.moveToNext();		//將指標移至下一筆資料
+                                    }
+                            }
+
+
+//                            tileView.addMarker( bathroomImg1, 350, 1373, null, null );
+//                            tileView.addMarker( bathroomImg2, 300, 1325, null, null );
+//                            tileView.addMarker( bathroomImg3, 515, 1307, null, null );
+//                            tileView.addMarker( bathroomImg4, 100, 1440, null, null );
+//                            tileView.addMarker( bathroomImg5, 550, 677, null, null );
+//                            tileView.addMarker( bathroomImg6, 860, 1325, null, null );
+//                            tileView.addMarker( bathroomImg7, 720, 2057, null, null );
+//                            tileView.addMarker( bathroomImg8, 730, 2400, null, null );
+//                            tileView.addMarker( bathroomImg9, 1400, 2490, null, null );
+//                            tileView.addMarker( bathroomImg10, 1320, 2735, null, null );
+                            markCursor.close();
+                        } catch(SQLiteException e) {
+                            Toast toast = Toast.makeText(getActivity(), "Database unavailable", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+
+
                     }
                     else {
                         removePin(bathroomImg);
@@ -412,4 +454,25 @@ public class MarkFragment extends Fragment  {
         points.add( new double[] {1555,1500} );
 
     }
+
+    private MarkerLayout.MarkerTapListener markerTapListener = new MarkerLayout.MarkerTapListener() {
+
+        @Override
+        public void onMarkerTap( View view, int x, int y ) {
+
+            // we saved the coordinate in the marker's tag
+            double[] position = (double[]) view.getTag();
+            // lets center the screen to that coordinate
+            tileView.slideToAndCenter( position[0], position[1] );
+            // create a simple callout
+            SampleCallout callout = new SampleCallout( view.getContext() );
+            // add it to the view tree at the same position and offset as the marker that invoked it
+            tileView.addCallout( callout, position[0], position[1], -0.5f, -1.0f );
+            // a little sugar
+            callout.transitionIn();
+            // stub out some text
+            callout.setTitle( "MAP CALLOUT" );
+            callout.setSubtitle( "Info window at coordinate:\n" + position[1] + ", " + position[0] );
+        }
+    };
 }
