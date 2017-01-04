@@ -20,7 +20,6 @@ public class DefaultIntro extends BaseIntro {
         addSlide(SampleSlide.newInstance(R.layout.intro_2));
         addSlide(SampleSlide.newInstance(R.layout.intro_3));
         addSlide(SampleSlide.newInstance(R.layout.intro_4));
-        addSlide(SampleSlide.newInstance(R.layout.intro_5));
     }
 
     @Override

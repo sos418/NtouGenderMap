@@ -192,7 +192,6 @@ public class MarkFragment extends Fragment  {
 //                            tileView.addMarker( bathroomImg8, 730, 2400, null, null );
 //                            tileView.addMarker( bathroomImg9, 1400, 2490, null, null );
 //                            tileView.addMarker( bathroomImg10, 1320, 2735, null, null );
-                            markCursor.close();
                         } catch(SQLiteException e) {
                             Toast toast = Toast.makeText(getActivity(), "Database unavailable", Toast.LENGTH_SHORT);
                             toast.show();
